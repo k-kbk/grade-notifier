@@ -72,9 +72,9 @@ export default async function getGrade() {
       const json = JSON.stringify(exData, null, 2);
       fs.writeFileSync(JSON_PATH, json, 'utf-8');
     }
+    await browser.close();
   } catch (error) {
     console.log(error);
-  } finally {
     await browser.close();
   }
 }
