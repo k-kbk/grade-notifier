@@ -9,6 +9,8 @@ const app = express();
 
 const PORT = process.env.PORT;
 
+getGrade();
+
 const job = schedule.scheduleJob('*/5 * * * *', getGrade);
 
 app.listen(PORT, () => {

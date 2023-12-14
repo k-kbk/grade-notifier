@@ -28,15 +28,15 @@ export default async function getGrade() {
       USER_PW
     );
     await page.click('#loginButton');
-    await page.waitForSelector('.btn-gnb-menu-open', { timeout: 10000 });
+    await page.waitForSelector('.btn-gnb-menu-open', { timeout: 15000 });
     await page.click('.btn-gnb-menu-open');
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(15000);
     await page.click('#sideform > div.left-menu-inner > ul > li:nth-child(4)');
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(15000);
     await page.click(
       '#sideform > div.left-menu-inner > ul > li:nth-child(4) > div.snb-wrap > ul > li:nth-child(2)'
     );
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(15000);
     const rows = await page.$$eval(
       '#container > section > div:nth-child(2) > div > div > div > div > table > tbody',
       (items) => {
