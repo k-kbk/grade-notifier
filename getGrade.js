@@ -10,12 +10,11 @@ export default async function getGrade() {
   const USER_PW = process.env.USER_PW;
   const JSON_PATH = process.env.JSON_PATH;
 
-  let browser;
+  const browser = await puppeteer.launch({
+    headless: false,
+  });
 
   try {
-    browser = await puppeteer.launch({
-      headless: false,
-    });
     const page = await browser.newPage();
     await page.goto(LOGIN_PAGE);
     await page.waitForSelector('#id');
@@ -72,9 +71,9 @@ export default async function getGrade() {
       const json = JSON.stringify(exData, null, 2);
       fs.writeFileSync(JSON_PATH, json, 'utf-8');
     }
-    await browser.close();
   } catch (error) {
     console.log(error);
+  } finally {
     await browser.close();
   }
 }
