@@ -7,10 +7,10 @@ dotenv.config();
 
 const app = express();
 
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
 const job = schedule.scheduleJob('*/1 * * * *', getGrade);
 
-app.listen(port, () => {
-  console.log(`running on ${port}`);
+app.listen(PORT, () => {
+  console.log(`${PORT}: 서버 실행`);
 });

@@ -3,6 +3,8 @@ import fs from 'fs';
 import sendEmail from './sendEmail.js';
 
 export default async function getGrade() {
+  console.log(new Date().toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul' }));
+
   const LOGIN_PAGE = process.env.LOGIN_PAGE;
   const USER_ID = process.env.USER_ID;
   const USER_PW = process.env.USER_PW;
