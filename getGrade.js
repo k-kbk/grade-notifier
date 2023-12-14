@@ -11,7 +11,7 @@ export default async function getGrade() {
   const JSON_PATH = process.env.JSON_PATH;
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
   });
 
