@@ -9,7 +9,7 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-const job = schedule.scheduleJob('*/1 * * * *', getGrade);
+const job = schedule.scheduleJob('*/5 * * * *', getGrade);
 
 app.listen(PORT, () => {
   console.log(`${PORT}: 서버 실행`);
