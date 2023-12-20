@@ -23,6 +23,10 @@ export default async function getScore(page) {
 
   const itemsText = items.toString();
 
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, itemsText, 'utf-8');
+  }
+
   const textData = fs.readFileSync(filePath, 'utf-8');
   if (textData !== itemsText) {
     sendEmail('점수 공개', itemsText);
