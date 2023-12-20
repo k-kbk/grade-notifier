@@ -8,7 +8,7 @@ export default async function getScore(page) {
 
   console.log('***** 수강점수조회');
 
-  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 15000 });
+  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
   await page.click('.btn-gnb-menu-open');
   await page.waitForTimeout(1500);
   await page.click('#sideform > div.left-menu-inner > ul > li:nth-child(4)');
