@@ -2,7 +2,7 @@ import fs from 'fs';
 import sendEmail from './sendEmail.js';
 
 export default async function getScore(page) {
-  const TEXT_FILE = process.env.TEXT_FILE;
+  const TEXT_PATH = process.env.TEXT_PATH;
 
   console.log('***** 수강점수조회');
 
@@ -20,9 +20,10 @@ export default async function getScore(page) {
 
   const itemsText = items.toString();
 
-  const textData = fs.readFileSync(TEXT_FILE, 'utf-8');
+  const textData = fs.readFileSync(TEXT_PATH, 'utf-8');
   if (textData !== itemsText) {
     sendEmail('점수 공개', itemsText);
+    fs.writeFileSync(TEXT_PATH, itemsText, 'utf-8');
   }
 
   items.forEach((item) => {
@@ -32,7 +33,4 @@ export default async function getScore(page) {
     );
     console.log('\n');
   });
-
-  fs.writeFileSync(TEXT_FILE, itemsText, 'utf-8');
-  await page.reload({ timeout: 5000 });
 }

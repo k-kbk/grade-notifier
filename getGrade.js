@@ -43,10 +43,10 @@ export default async function getGrade(page) {
       if (exData[lectureNumber] && isPublic === '공개') {
         sendEmail(`${lectureName} 성적 공개`, '');
         exData[lectureNumber] = true;
+
+        const json = JSON.stringify(exData, null, 2);
+        fs.writeFileSync(JSON_PATH, json, 'utf-8');
       }
     });
-
-    const json = JSON.stringify(exData, null, 2);
-    fs.writeFileSync(JSON_PATH, json, 'utf-8');
   }
 }
