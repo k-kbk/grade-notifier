@@ -1,5 +1,6 @@
 export default async function login(page) {
-  const LOGIN_PAGE = process.env.LOGIN_PAGE;
+  const LOGIN_PAGE =
+    'https://sso1.mju.ac.kr/login.do?redirect_uri=https://myiweb.mju.ac.kr/index_Myiweb.jsp';
   const USER_ID = process.env.USER_ID;
   const USER_PW = process.env.USER_PW;
 
@@ -14,5 +15,4 @@ export default async function login(page) {
     USER_PW
   );
   await page.click('#loginButton');
-  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 5000 });
 }
