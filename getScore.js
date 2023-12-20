@@ -1,8 +1,10 @@
 import fs from 'fs';
+import path from 'path';
 import sendEmail from './sendEmail.js';
 
 export default async function getScore(page) {
   const TEXT_PATH = process.env.TEXT_PATH;
+  const filePath = path.join(path.resolve(), TEXT_PATH);
 
   console.log('***** 수강점수조회');
 
@@ -21,10 +23,10 @@ export default async function getScore(page) {
 
   const itemsText = items.toString();
 
-  const textData = fs.readFileSync(TEXT_PATH, 'utf-8');
+  const textData = fs.readFileSync(filePath, 'utf-8');
   if (textData !== itemsText) {
     sendEmail('점수 공개', itemsText);
-    fs.writeFileSync(TEXT_PATH, itemsText, 'utf-8');
+    fs.writeFileSync(filePath, itemsText, 'utf-8');
   }
 
   items.forEach((item) => {

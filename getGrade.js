@@ -1,8 +1,10 @@
 import fs from 'fs';
+import path from 'path';
 import sendEmail from './sendEmail.js';
 
 export default async function getGrade(page) {
   const JSON_PATH = process.env.JSON_PATH;
+  const filePath = path.join(path.resolve(), JSON_PATH);
 
   console.log('***** 수강성적조회');
   console.log('\n');
@@ -21,7 +23,7 @@ export default async function getGrade(page) {
     }
   );
 
-  if (!fs.existsSync(JSON_PATH)) {
+  if (!fs.existsSync(filePath)) {
     const newData = {};
     rows.forEach((item) => {
       const line = item.trim().split('\t');
@@ -30,9 +32,9 @@ export default async function getGrade(page) {
     });
 
     const json = JSON.stringify(newData, null, 2);
-    fs.writeFileSync(JSON_PATH, json, 'utf-8');
+    fs.writeFileSync(filePath, json, 'utf-8');
   } else {
-    const jsonData = fs.readFileSync(JSON_PATH, 'utf-8');
+    const jsonData = fs.readFileSync(filePath, 'utf-8');
     const exData = JSON.parse(jsonData);
 
     rows.forEach((item) => {
@@ -45,7 +47,7 @@ export default async function getGrade(page) {
         exData[lectureNumber] = true;
 
         const json = JSON.stringify(exData, null, 2);
-        fs.writeFileSync(JSON_PATH, json, 'utf-8');
+        fs.writeFileSync(filePath, json, 'utf-8');
       }
     });
   }
