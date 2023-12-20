@@ -6,15 +6,15 @@ export default async function getScore(page) {
 
   console.log('***** 수강점수조회');
 
-  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 10000 });
+  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 15000 });
   await page.click('.btn-gnb-menu-open');
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1500);
   await page.click('#sideform > div.left-menu-inner > ul > li:nth-child(4)');
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1500);
   await page.click(
     '#sideform > div.left-menu-inner > ul > li:nth-child(4) > div.snb-wrap > ul > li:nth-child(1)'
   );
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1500);
   const items = await page.$$eval('#container > section > div.basic-group', (items) => {
     return items.map((tbody) => tbody.innerText).slice(3);
   });

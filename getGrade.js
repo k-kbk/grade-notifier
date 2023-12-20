@@ -7,13 +7,13 @@ export default async function getGrade(page) {
   console.log('***** 수강성적조회');
   console.log('\n');
 
-  await page.waitForSelector('.btn-gnb-menu-open', { timeout: 10000 });
+  await page.waitForSelector('.btn-gnb-menu-open');
   await page.click('.btn-gnb-menu-open');
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1000);
   await page.click(
     '#sideform > div.left-menu-inner > ul.left-menu-list > li:nth-child(4) > div.snb-wrap >  ul > li:nth-child(2)'
   );
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(1000);
   const rows = await page.$$eval(
     '#container > section > div:nth-child(2) > div > div > div > div > table > tbody',
     (items) => {
