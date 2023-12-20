@@ -6,7 +6,7 @@
   "scripts": {
     "heroku-postbuild": "bash postbuild.bash",
     "start": "node index.js",
-    "deploy": "npm install && node node_modules/puppeteer/install.mjs ",
+    "deploy": "npm install && node node_modules/puppeteer/install.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "bk",
