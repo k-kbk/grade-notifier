@@ -1,7 +1,7 @@
 import express from 'express';
 import schedule from 'node-schedule';
 import * as dotenv from 'dotenv';
-import run from './run.js';
+import run from './utils/run.js';
 
 dotenv.config();
 

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import sendEmail from './sendEmail.js';
+import sendEmail from '../sendEmail.js';
 
 export default async function getScore(page) {
   const TEXT_PATH = process.env.TEXT_PATH;
