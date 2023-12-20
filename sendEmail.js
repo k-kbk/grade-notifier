@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export default async function sendEmail(lectureName, grade) {
+export default async function sendEmail(subject, text) {
   const NAVER_MAIL = process.env.NAVER_MAIL;
   const NAVER_PW = process.env.NAVER_PW;
   const TO_EMAIL = process.env.TO_EMAIL;
@@ -18,8 +18,8 @@ export default async function sendEmail(lectureName, grade) {
   const mailOptions = {
     from: NAVER_MAIL,
     to: TO_EMAIL,
-    subject: `${lectureName} 성적 공개`,
-    text: `${lectureName} ${grade}`,
+    subject,
+    text,
   };
 
   transporter.sendMail(mailOptions, function (err, info) {
