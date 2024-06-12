@@ -5,7 +5,7 @@ export default async function getGrade(page) {
   const filePath = './grade.json';
 
   console.log('\n');
-  console.log('***** 수강성적조회');
+  console.log('***** 수강성적조회 *****');
   console.log('\n');
 
   await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
@@ -49,10 +49,5 @@ export default async function getGrade(page) {
         fs.writeFileSync(filePath, json, 'utf-8');
       }
     });
-
-    console.log(
-      '----------------------------------------------------------------------------------------------------'
-    );
-    console.log('\n');
   }
 }

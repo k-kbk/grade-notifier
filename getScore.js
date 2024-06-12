@@ -4,7 +4,7 @@ import sendEmail from './sendEmail.js';
 export default async function getScore(page) {
   const filePath = './score.txt';
   console.log('\n');
-  console.log('***** 수강점수조회');
+  console.log('***** 수강점수조회 *****');
 
   await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
   await page.click('.btn-gnb-menu-open');
@@ -36,8 +36,4 @@ export default async function getScore(page) {
     console.log('\n');
     console.log(item);
   });
-
-  console.log(
-    '----------------------------------------------------------------------------------------------------'
-  );
 }
