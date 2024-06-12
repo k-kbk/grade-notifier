@@ -26,6 +26,7 @@ export default async function getScore(page) {
   }
 
   const textData = fs.readFileSync(filePath, 'utf-8');
+
   if (textData !== itemsText) {
     sendEmail('점수 공개', itemsText);
     fs.writeFileSync(filePath, itemsText, 'utf-8');
