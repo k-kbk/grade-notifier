@@ -4,8 +4,9 @@ import getScore from './getScore.js';
 import getGrade from './getGrade.js';
 
 export default async function run() {
-  console.log('============================================================');
+  console.log('=============================');
   console.log(new Date().toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul' }));
+  console.log('=============================');
 
   const browser = await puppeteer.launch({
     headless: 'new',
