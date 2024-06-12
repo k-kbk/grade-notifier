@@ -26,7 +26,6 @@ export default async function sendEmail(subject, text) {
     if (err) {
       console.log(err);
     } else {
-      console.log('메일 전송', info.response);
       transporter.close();
     }
   });
