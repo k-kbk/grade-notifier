@@ -4,9 +4,8 @@ import sendEmail from './sendEmail.js';
 export default async function getGrade(page) {
   const filePath = './grade.json';
 
-  console.log('\n');
-  console.log('***** 수강성적조회 *****');
-  console.log('\n');
+  console.log('********** 수강성적조회 **********');
+  console.log();
 
   await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
   await page.click('.btn-gnb-menu-open');

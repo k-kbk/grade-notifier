@@ -3,8 +3,10 @@ import sendEmail from './sendEmail.js';
 
 export default async function getScore(page) {
   const filePath = './score.txt';
-  console.log('\n');
-  console.log('***** 수강점수조회 *****');
+
+  console.log();
+  console.log('********** 수강점수조회 **********');
+  console.log();
 
   await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
   await page.click('.btn-gnb-menu-open');
@@ -15,8 +17,9 @@ export default async function getScore(page) {
     '#sideform > div.left-menu-inner > ul > li:nth-child(4) > div.snb-wrap > ul > li:nth-child(1)'
   );
   await page.waitForTimeout(1500);
+
   const items = await page.$$eval('#container > section > div.basic-group', (items) => {
-    return items.map((tbody) => tbody.innerText).slice(3);
+    return items.map((tbody) => tbody.innerText + '\n').slice(3);
   });
 
   const itemsText = items.toString();
@@ -33,7 +36,6 @@ export default async function getScore(page) {
   }
 
   items.forEach((item) => {
-    console.log('\n');
     console.log(item);
   });
 }
