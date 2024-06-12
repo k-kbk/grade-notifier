@@ -1,11 +1,9 @@
 import fs from 'fs';
-import path from 'path';
 import sendEmail from './sendEmail.js';
 
 export default async function getScore(page) {
-  const TEXT_PATH = process.env.TEXT_PATH;
-  const filePath = path.join(path.resolve(), TEXT_PATH);
-
+  const filePath = './score.txt';
+  console.log('\n');
   console.log('***** 수강점수조회');
 
   await page.waitForSelector('.btn-gnb-menu-open', { timeout: 20000 });
@@ -34,10 +32,11 @@ export default async function getScore(page) {
   }
 
   items.forEach((item) => {
-    console.log(item);
-    console.log(
-      '----------------------------------------------------------------------------------------------------'
-    );
     console.log('\n');
+    console.log(item);
   });
+
+  console.log(
+    '----------------------------------------------------------------------------------------------------'
+  );
 }

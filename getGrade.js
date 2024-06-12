@@ -1,11 +1,10 @@
 import fs from 'fs';
-import path from 'path';
 import sendEmail from './sendEmail.js';
 
 export default async function getGrade(page) {
-  const JSON_PATH = process.env.JSON_PATH;
-  const filePath = path.join(path.resolve(), JSON_PATH);
+  const filePath = './grade.json';
 
+  console.log('\n');
   console.log('***** 수강성적조회');
   console.log('\n');
 
@@ -50,5 +49,10 @@ export default async function getGrade(page) {
         fs.writeFileSync(filePath, json, 'utf-8');
       }
     });
+
+    console.log(
+      '----------------------------------------------------------------------------------------------------'
+    );
+    console.log('\n');
   }
 }

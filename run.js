@@ -1,12 +1,11 @@
 import puppeteer from 'puppeteer';
-import login from './login.js';
+import { tryLogin } from './login.js';
 import getScore from './getScore.js';
 import getGrade from './getGrade.js';
 
 export default async function run() {
   console.log('============================================================');
   console.log(new Date().toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul' }));
-  console.log('\n');
 
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -15,7 +14,7 @@ export default async function run() {
   const page = await browser.newPage();
 
   try {
-    await login(page);
+    await tryLogin(page);
     await getScore(page);
     await getGrade(page);
   } catch (error) {
