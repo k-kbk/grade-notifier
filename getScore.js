@@ -22,7 +22,7 @@ export default async function getScore(page) {
     return items.map((tbody) => tbody.innerText + '\n').slice(3);
   });
 
-  const itemsText = items.toString();
+  const itemsText = items.join('\n');
 
   if (!fs.existsSync(filePath)) {
     fs.writeFileSync(filePath, itemsText, 'utf-8');
