@@ -41,7 +41,7 @@ export default async function getGrade(page) {
 
       console.log(`${lectureName}: ${grade}`);
 
-      if (isPublic === '공개') {
+      if (!exData[lectureNumber] && isPublic === '공개') {
         sendEmail(`${lectureName} 성적 공개`, grade);
         exData[lectureNumber] = true;
 
