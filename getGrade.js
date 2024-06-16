@@ -38,7 +38,8 @@ export default async function getGrade(page) {
     rows.forEach((item) => {
       const line = item.trim().split('\t');
       const [lectureNumber, lectureName, , grade, isPublic] = line;
-      console.log(`${lectureName}: ${isPublic}`);
+
+      console.log(`${lectureName}: ${grade}`);
 
       if (exData[lectureNumber] && isPublic === '공개') {
         sendEmail(`${lectureName} 성적 공개`, '');
